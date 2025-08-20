@@ -9,11 +9,11 @@ class QuestsController < ApplicationController
   def create
     @quest = Quest.new(quest_params)
 
-    if @quest.save
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to quests_path, notice: "Quest created." }
-      end
+ if @quest.save
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to quests_path, notice: "Quest created" }
+    end
     else
       respond_to do |format|
         # Turbo: แทนที่ฟอร์มด้วย error state
