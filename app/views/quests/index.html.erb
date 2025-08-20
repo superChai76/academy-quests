@@ -1,9 +1,9 @@
 <% content_for :title, "Quests" %>
 
-<div class="w-full max-w-5xl mx-auto pt-20">
+<div class="w-full max-w-5xl mx-auto pt-20 max-md:pt-10 max-sm:pt-6">
   <!-- Header -->
-  <section class="flex gap-10 justify-center">
-    <div class="flex flex-col items-center gap-10">
+  <section class="flex gap-[6vw] justify-center max-xl:max-gap-20 max-md:hidden">
+    <div class="flex flex-col items-center gap-10 max-xl:scale-90">
       <span class="text-amber-400 text-4xl font-semibold">My Academy Quests</span>
       <div class="font-bold">
         <div class="flex flex-col text-white/60 items-center justify-center text-6xl leading-[1.0]">
@@ -16,32 +16,64 @@
           </span>
         </div>
       </div>
-      <div class="mt-10 bg-white/20 border-2 border-white backdrop-blur-xl rounded-2xl px-8 py-3 shadow-md hover:scale-90 cursor-pointer">
-          <%= link_to "My Brag document", new_quest_path, class:"text-2xl text-white"%>
+      <div class="mt-4 bg-white/20 border-2 border-white backdrop-blur-xl rounded-2xl px-8 py-3 shadow-md hover:scale-90 cursor-pointer">
+          <%= link_to "My Brag document", new_quest_path, class:"text-xl text-white"%>
       </div>
     </div>
-    <div class="relative overflow-hidden w-120 h-120 ">
-      <div class="absolute">
-        <%= image_tag "profile_pic.png", class: "w-120 h-120 object-contain" %>
+    <div class="w-fit">
+      <%= image_tag "profile_pic.png", class: "h-100 object-contain" %>
+    </div>
+  </section>
+
+  <section class="overflow-hidden h-120 max-sm:h-90 md:hidden w-full">
+    <div class="relative w-full">
+      <div class="absolute left-1/2 -translate-x-1/2">
+        <div class="text-lg opacity-70 text-white max-sm:[10px]">Supachai Suttiprapa</div>
+        <div class="text-amber-400 text-2xl max-sm:text-[20px] font-semibold w-">My Academy Quests</div>
+      </div>
+    
+      <div class="absolute -bottom-70 left-1/2 -translate-x-1/2 
+                  text-6xl max-sm:text-4xl max-sm:-bottom-60 font-bold text-white opacity-70">
+        <div class="flex flex-col items-center justify-center leading-[1.2]">
+          <span>SUPACHAI</span>
+          <span>SUTTIPRAPA</span>
+        </div>
+        <div class="flex justify-end">
+        <span class="mt-2 px-6 rounded-full w-fit bg-white/80 text-xl text-[#0F4A84] max-sm:text-sm max-sm:px-4 font-bold backdrop-blur">
+          PLUB
+        </span>
+        </div>
+      </div>
+
+      <div class="absolute left-1/2 top-30 -translate-x-1/2 max-sm:top-20">
+        <%= image_tag "profile_pic.png", class: "h-100 object-contain" %>
+      </div>
+
+      <div class="absolute left-1/2 -bottom-185 -translate-x-1/2 bg-white/20 border-2 border-white backdrop-blur-xl rounded-4xl px-8 py-3 text-xl text-white shadow-md hover:scale-90 cursor-pointer">
+        <%= link_to "My Brag document", new_quest_path %>
       </div>
     </div>
   </section>
   <!-- List container -->
-  <section class="bg-white/80 backdrop-blure-md rounded-t-4xl p-10 h-screen mx-auto border-1">
+  <section class="bg-white/80 backdrop-blure-md rounded-t-4xl p-10 h-screen mx-auto max-md:p-6">
     <div class="flex items-center justify-between">
-    <p class="text-4xl font-bold text-[#204060]">Quests</p>
+    <p class="text-4xl max-md:text-2xl font-bold text-[#204060]">Quests</p>
     <%= button_to new_quest_path,
                 method: :get, 
-                class: "btn py-5 px-4 rounded-full bg-[#FFA826] border-2 border-[#FFD7B2] shadow-amber-300 shadow-md text-white text-xl flex justify-center items-center cursor-pointer hover:scale-90" do %>
+                class: "btn py-5 px-4 rounded-full bg-[#FFA826] border-2 border-[#FFD7B2] shadow-amber-300 shadow-md text-white text-xl flex justify-center items-center cursor-pointer hover:scale-90 max-md:hidden" do %>
     <div class="flex items-center justify-center gap-2">             
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-8">
         <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
       </svg>
       <span>New</span>
     </div>
+    <button class="btn btn-circle p-2 w-10 h-10 bg-[#FFA826] border-2 border-[#FFD7B2] shadow-amber-300 shadow-md text-white text-[50px] flex justify-center items-center cursor-pointer hover:scale-90 md:hidden"
+                  data-testid="new-quest-btn"
+                  onclick="document.getElementById('new-quest-modal').showModal()">
+    <%= image_tag "plus.svg", class: "w-6 h-6" %>
   <% end %>
       </div>
-      <hr class="my-8 border-1 opacity-70 border-[#0F4A8A]"/>
+      <hr class="my-8 max-md:my-4 border-1 opacity-70 border-[#0F4A8A]"/>
       <%= turbo_frame_tag "quest_list" do %>
         <div class="">
           <%= render @quests.order(:is_done, :created_at) %>
