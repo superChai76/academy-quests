@@ -1,22 +1,22 @@
 <div id="<%= dom_id quest %>" 
      class="w-full shadow-lg bg-white border-2 border-gray-200 rounded-2xl py-3 px-4 mb-4 <%= 'opacity-40' if quest.is_done %>"
-     data-testid="quest-item-<%= quest.id %>">
+     data-test-id="quest-item-<%= quest.id %>">
 
   <div class="flex justify-between items-center gap-2">
     <div class="flex items-center gap-4 text-xl max-md:text-sm flex-1 min-w-0">
       <div class="shrink-0">
         <%= turbo_frame_tag dom_id(quest, :checkbox) do %>
-          <%= form_with url: toggle_done_quest_path(quest), method: :patch, class: "inline" do %>
+          <%= form_with url: toggle_done_quest_path(quest), method: :patch, class: "inline", data: { test_id: "quest-toggle-form-#{quest.id}" } do %>
             <%= check_box_tag "is_done", "1", quest.is_done,
                   onchange: "this.form.requestSubmit();",
                   class: "checkbox scale-120",
-                  data: { testid: "quest-done-checkbox-#{quest.id}" } %>
+                  data: { test_id: "quest-done-checkbox-#{quest.id}" } %>
           <% end %>
         <% end %>
       </div>
 
       <span class="flex-1 min-w-0 overflow-hidden text-ellipsis line-clamp-2 break-words <%= 'line-through text-gray-400' if quest.is_done %>"
-            data-testid="quest-content-<%= quest.id %>">
+            data-test-id="quest-content-<%= quest.id %>">
         <%= quest.description %>
       </span>
     </div>
@@ -24,7 +24,7 @@
     <div class="shrink-0">
       <%= button_to quest_path(quest), method: :delete,
             class:"cursor-pointer flex items-center",
-            data: { turbo_frame: "quest_list", testid: "quest-delete-btn-#{quest.id}" } do %>
+            data: { turbo_frame: "quest_list", test_id: "quest-delete-btn-#{quest.id}" } do %>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
              class="size-10 max-md:size-8 text-gray-300 hover:text-red-500 transition-colors duration-200">
           <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" clip-rule="evenodd" />

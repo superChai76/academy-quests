@@ -54,13 +54,13 @@
   </section>
   <!-- List container -->
   <section class="bg-white/80 backdrop-blur-md rounded-t-4xl p-10 h-full min-h-screen mx-auto max-md:p-6">
-    <p class="text-4xl max-md:text-2xl font-bold text-[#204060]">Quests</p>
+    <p class="text-4xl max-md:text-2xl font-bold text-[#204060]" data-test-id="quests-title">Quests</p>
 
-    <%= turbo_frame_tag "new_quest_form" do %>
+    <%= turbo_frame_tag "new_quest_form", data: { test_id: "new-quest-form" } do %>
       <%= render "quests/form" %>
     <% end %>
 
-    <%= turbo_frame_tag "quest_list" do %>
+    <%= turbo_frame_tag "quest_list", data: { test_id: "quest-list" } do %>
       <%= render @quests.order(:is_done, :created_at) %>
     <% end %>
   </section>

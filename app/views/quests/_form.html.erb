@@ -1,16 +1,17 @@
 <%= form_with model: Quest.new, url: quests_path,
-      class: "flex w-full gap-2 my-6 items-center" do |f| %>
+      class: "flex w-full gap-2 my-6 items-center",
+      data: { test_id: "quest-form" } do |f| %>
 
-  <!-- ช่องกรอก: ยืดเต็ม -->
   <%= f.text_field :description,
         placeholder: "Add a new quest…",
-        class: "input input-bordered flex-1 bg-white/90 rounded-xl text-xl py-8 border-2 border-[#0F4A84]" %>
+        class: "input input-bordered flex-1 bg-white/90 rounded-xl text-xl py-8 border-2 border-[#0F4A84]",
+        data: { test_id: "quest-input" } %>
 
-  <!-- ปุ่ม: ไม่ยืด -->
   <button type="submit"
           class="btn btn-circle shrink-0 p-2 w-12 h-12 bg-[#FFA826] border-2 border-[#FFD7B2] 
                  shadow-amber-300 shadow-md text-white hover:scale-90"
-          aria-label="Create quest">
+          aria-label="Create quest"
+          data-test-id="quest-submit-btn">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-8">
       <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
     </svg>

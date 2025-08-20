@@ -1,11 +1,11 @@
-<turbo-frame id="quest_list">
-      <div id="quests" class="overflow-y-auto">
-        <% @quests.each do |quest| %>
-          <%= render "quest", quest: quest %>
-        <% end %>
+<turbo-frame id="quest_list" data-test-id="quest-list">
+  <div id="quests" class="overflow-y-auto" data-test-id="quest-list-container">
+    <% @quests.each do |quest| %>
+      <%= render "quest", quest: quest %>
+    <% end %>
 
-        <% if @quests.empty? %>
-          <p class="text-center text-gray-400 py-6">No quests found. Create New Quest</p>
-        <% end %>
-      </div>
+    <% if @quests.empty? %>
+      <p class="text-center text-gray-400 py-6" data-test-id="no-quests-msg">No quests found. Create New Quest</p>
+    <% end %>
+  </div>
 </turbo-frame>
