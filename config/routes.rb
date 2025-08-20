@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "brag/index"
-  resources :quests, only: [ :index ] do
+  resources :quests do
   member { patch :toggle_done }
 end
 
