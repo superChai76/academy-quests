@@ -62,4 +62,21 @@ class QuestsControllerTest < ActionDispatch::IntegrationTest
     patch toggle_done_quest_url(@quest, format: :turbo_stream)
     assert_response :success
   end
+
+  test "should re-render form via turbo_stream when create is invalid" do
+    assert_no_difference("Quest.count") do
+      post quests_url(format: :turbo_stream), params: { quest: { description: "", is_done: false } }
+    end
+
+    # invalid ผ่าน turbo_stream ควรเป็น 200 (replace เฉพาะฟอร์ม)
+    assert_response :success
+
+    # ยืนยันว่าเป็น turbo-stream และเป็น action replace ไปที่ new_quest_form
+    assert_equal "text/vnd.turbo-stream.html", response.media_type
+    assert_select "turbo-stream[action='replace'][target='new_quest_form']"
+
+    # ข้างใน template ควรมีฟอร์ม (อาศัย data-test-id ที่เราใส่ไว้)
+    assert_includes response.body, 'data-test-id="quest-form"'
+  end
+
 end
