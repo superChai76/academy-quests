@@ -1,0 +1,11 @@
+<turbo-frame id="quest_list">
+      <div id="quests" class="space-y-3">
+        <% @quests.each do |quest| %>
+          <%= render "quest", quest: quest %>
+        <% end %>
+
+        <% if @quests.empty? %>
+          <p class="text-center text-gray-400 py-6">No quests found. Create New Quest</p>
+        <% end %>
+      </div>
+</turbo-frame>
