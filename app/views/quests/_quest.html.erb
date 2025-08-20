@@ -1,16 +1,15 @@
 <div id="<%= dom_id quest %>" 
-     class="w-full shadow-lg border-2 border-gray-200 rounded-2xl py-3 px-4 mb-4 <%= 'opacity-40' if quest.is_done %>"
+     class="w-full shadow-lg bg-white border-2 border-gray-200 rounded-2xl py-3 px-4 mb-4 <%= 'opacity-40' if quest.is_done %>"
      data-testid="quest-item-<%= quest.id %>">
 
   <div class="flex justify-between items-center gap-2">
     <div class="flex items-center gap-4 text-xl">
-
       <!-- Checkbox: toggle is_done -->
       <%= turbo_frame_tag dom_id(quest, :checkbox) do %>
         <%= form_with url: toggle_done_quest_path(quest), method: :patch, class: "inline" do %>
           <%= check_box_tag "is_done", "1", quest.is_done,
                 onchange: "this.form.requestSubmit();",
-                class: "checkbox checkbox-primary scale-120",
+                class: "checkbox checkbox-[#0F4A84] scale-120",
                 data: { testid: "quest-done-checkbox-#{quest.id}" } %>
         <% end %>
       <% end %>
