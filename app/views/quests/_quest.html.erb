@@ -1,10 +1,25 @@
-<div id="<%= dom_id quest %>" class="w-full sm:w-auto my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= quest.description %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Is done:</strong>
-    <%= quest.is_done? ? "Yes" : "No" %>
+<div id="<%= dom_id quest %>" 
+     class="w-full shadow-lg border-2 border-gray-200 rounded-2xl py-3 px-4 <%= 'opacity-40' if quest.is_done %>"
+     data-testid="quest-item-<%= quest.id %>">
+
+  <div class="flex justify-between items-center gap-2">
+    <div class="flex items-center gap-4 text-xl">
+      <!-- Checkbox placeholder -->
+      <div class="checkbox checkbox-primary scale-120"></div>
+
+      <!-- Quest content -->
+      <span class="<%= 'line-through text-gray-400' if quest.is_done %>"
+            data-testid="quest-content-<%= quest.id %>">
+        <%= quest.description %>
+      </span>
+    </div>
+
+    <!-- Delete button placeholder -->
+    <div class="cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-10 text-gray-300 hover:text-red-500 transition-colors duration-200"
+           data-testid="delete-quest-button-<%= quest.id %>">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" clip-rule="evenodd" />
+      </svg>
+    </div>
   </div>
 </div>
