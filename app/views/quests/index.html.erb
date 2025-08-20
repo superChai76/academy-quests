@@ -10,5 +10,9 @@
     <%= link_to "New quest", new_quest_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
 
-  <%= render "quests" %>
+  <%= turbo_frame_tag "quest_list" do %>
+    <div class="space-y-4">
+      <%= render @quests.order(:is_done, :created_at) %>
+    </div>
+  <% end %>
 </div>

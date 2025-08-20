@@ -1,0 +1,11 @@
+<%= turbo_stream.remove dom_id(@quest) %>
+
+<% if @quest.is_done %>
+  <%= turbo_stream.append "quest_list" do %>
+    <%= render @quest %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "quest_list" do %>
+    <%= render @quest %>
+  <% end %>
+<% end %>

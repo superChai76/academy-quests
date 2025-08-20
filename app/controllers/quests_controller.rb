@@ -1,5 +1,5 @@
 class QuestsController < ApplicationController
-  before_action :set_quest, only: %i[ destroy ]
+  before_action :set_quest, only: %i[ destroy toggle_done ]
 
   # GET /quests or /quests.json
   def index
@@ -28,14 +28,22 @@ class QuestsController < ApplicationController
 
   # DELETE /quests/1 or /quests/1.json
   def destroy
-    @quest.destroy!
-
+    @quest.destroy
     respond_to do |format|
-      format.html { redirect_to quests_path, notice: "Quest was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
+      format.turbo_stream
+      format.html { redirect_to quests_url, notice: "Quest was successfully destroyed." }
     end
   end
 
+  def toggle_done
+    @quest.update(is_done: !@quest.is_done)
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to quests_path }
+    end
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quest
