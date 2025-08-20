@@ -1,0 +1,135 @@
+<div class="min-h-screen bg-gradient-to-b from-[#0F4A84] to-[#04111E] py-10">
+  <div class="max-w-3xl mx-auto px-4">
+
+    <!-- Header -->
+    <header class="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg text-white relative">
+      <div class="flex items-center justify-between">
+        <!-- Back button -->
+        <%= link_to "← Back", quests_path, 
+              class: "btn btn-sm btn-outline border-white/50 text-white hover:bg-white/20" %>
+
+        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">My Brag Document</h1>
+        <span class="badge badge-lg bg-white/80 text-[#0F4A84] border-0 font-semibold">PLUB</span>
+      </div>
+      <p class="mt-1 text-white/80">Supachai Suttiprapa</p>
+    </header>
+
+    <!-- LIFE GOAL -->
+    <section class="mt-6">
+        <div class="bg-white backdrop-blur-2xl rounded-xl shadow-md overflow-hidden p-[1px]">
+            <div class="p-6">
+              <h2 class="text-xl font-bold text-[#0F4A84] flex items-center gap-2">
+                <span>🎯</span> LIFE GOAL
+              </h2>
+              <div class="mt-4 space-y-4 text-slate-700">
+                <div>
+                  <h3 class="font-semibold text-slate-900">To be Indie Game Developer</h3>
+                  <ul class="list-disc ml-6 mt-2">
+                    <li>ปล่อยเกมเล็ก ๆ บน Steam / Mobile Store</li>
+                    <li>รับ feedback จริงและ iterate จนเป็น product จับต้องได้</li>
+                    <li>เล่าเรื่อง/แนวคิดในแบบของตัวเอง</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-slate-900">To be UX/UI Specialist</h3>
+                  <ul class="list-disc ml-6 mt-2">
+                    <li>ออกแบบ UX/UI อ้างอิงทฤษฎีได้ ไม่ใช่แค่ความรู้สึก</li>
+                    <li>สกัดความต้องการลูกค้าเป็น wireframe/prototype ที่ตรงจุด</li>
+                    <li>มี portfolio ครบกระบวนการ: Research → Prototype → Test → Iterate</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Family & Life</h3>
+                  <ul class="list-disc ml-6 mt-2">
+                    <li>รายได้มั่นคง เลี้ยงพ่อแม่ได้</li>
+                    <li>พาพ่อแม่ไปเที่ยวต่างประเทศสักครั้ง</li>
+                    <li>เลี้ยงตัวเองได้ และซื้อความสุขเล็ก ๆ ให้ตัวเอง</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- GOAL 2025 -->
+    <section class="mt-6">
+      <div class="bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-xl font-bold text-[#0F4A84] flex items-center gap-2">
+          <span>📆</span> GOAL in 2025
+        </h2>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          <li class="flex items-start gap-2">
+            <span class="badge badge-success badge-sm mt-1"></span>
+            <span><strong>Speak English fluently</strong> — สื่อสารงาน/ชีวิตประจำวันได้มั่นใจ</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="badge badge-success badge-sm mt-1"></span>
+            <span><strong>TOEIC 800++</strong> เพื่อยืนยันพัฒนาการภาษาอังกฤษ</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="badge badge-success badge-sm mt-1"></span>
+            <span><strong>Full-stack (ใช้งานจริง)</strong>: Rails/Node, React/Tailwind, Docker & CI/CD (มีโปรเจกต์ deploy ใช้งานจริง)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="badge badge-success badge-sm mt-1"></span>
+            <span><strong>สนิทกับเพื่อนที่ทำงาน</strong> — เข้าถึงง่าย มีส่วนร่วมกับทีม</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="mt-6">
+      <h2 class="sr-only">Actions</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Self -->
+        <div class="bg-white rounded-2xl shadow-md p-5">
+          <h3 class="font-semibold text-[#0F4A84] flex items-center gap-2">
+            <span>🧠</span> Actions — Self
+          </h3>
+          <ul class="list-disc ml-6 mt-3 text-slate-700 space-y-1">
+            <li>อ่านหนังสือติว TOEIC อย่างน้อยวันละ 30 นาที</li>
+            <li>ศึกษาทฤษฎี UX/UI (NN/g, Don Norman, Design Thinking)</li>
+            <li>ทำ side project เล็ก ๆ (blog/portfolio) ด้วย stack ที่ใช้จริง</li>
+          </ul>
+        </div>
+        <!-- Team -->
+        <div class="bg-white rounded-2xl shadow-md p-5">
+          <h3 class="font-semibold text-[#0F4A84] flex items-center gap-2">
+            <span>👥</span> Actions — Team
+          </h3>
+          <ul class="list-disc ml-6 mt-3 text-slate-700 space-y-1">
+            <li>แชร์ความรู้จาก Senior Project ให้ทีม</li>
+            <li>ช่วย review code/UX พร้อม feedback ที่สร้างสรรค์</li>
+          </ul>
+        </div>
+        <!-- ODT -->
+        <div class="bg-white rounded-2xl shadow-md p-5">
+          <h3 class="font-semibold text-[#0F4A84] flex items-center gap-2">
+            <span>🏗️</span> Actions — ODT
+          </h3>
+          <ul class="list-disc ml-6 mt-3 text-slate-700 space-y-1">
+            <li>เสนอ template/workflow เล็ก ๆ เพื่อเร่งความเร็วการทำงาน</li>
+            <li>อาสาปรับ UX ของ internal tool ให้ใช้ง่ายขึ้น</li>
+          </ul>
+        </div>
+        <!-- Client -->
+        <div class="bg-white rounded-2xl shadow-md p-5">
+          <h3 class="font-semibold text-[#0F4A84] flex items-center gap-2">
+            <span>🤝</span> Actions — Client
+          </h3>
+          <ul class="list-disc ml-6 mt-3 text-slate-700 space-y-1">
+            <li>ฝึกเก็บ requirements แบบไม่ตกหล่น โฟกัส pain point</li>
+            <li>ลอง present งานชิ้นเล็ก ๆ เพื่อต่อยอดทักษะสื่อสาร</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer tiny note -->
+    <p class="mt-8 text-center text-white/70 text-sm">
+      Updated <%= Time.current.strftime("%d %b %Y") %>
+    </p>
+  </div>
+</div>
+

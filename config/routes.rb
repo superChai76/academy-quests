@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-resources :quests do
-  member do
-    patch :toggle_done
-  end
+  get "brag/index"
+  resources :quests do
+  member { patch :toggle_done }
 end
+
+  get "/brags", to: "brags#index"
 
   root "quests#index"
 end
