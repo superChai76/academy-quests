@@ -1,18 +1,28 @@
 <% content_for :title, "Quests" %>
 
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
+    <!-- List container -->
+    <section class="bg-white rounded-t-4xl p-10 h-screen mx-auto w-full max-w-5xl border-1">
+        <div class="flex items-center justify-between">
+          <p class="text-4xl font-bold text-[#204060]">Quests</p>
+    <%= button_to new_quest_path,
+                  method: :get, 
+                  class: "btn py-5 px-4 rounded-full bg-[#FFA826] border-2 border-[#FFD7B2] shadow-amber-300 shadow-md text-white text-xl flex justify-center items-center cursor-pointer hover:scale-90" do %>
+      <div class="flex items-center justify-center gap-2">             
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-8">
+  <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+</svg>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Quests</h1>
-    <%= link_to "New quest", new_quest_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
-  </div>
-
-  <%= turbo_frame_tag "quest_list" do %>
-    <div class="space-y-4">
-      <%= render @quests.order(:is_done, :created_at) %>
-    </div>
-  <% end %>
+      <span>New</span>
+      </div>
+    <% end %>
+        </div>
+        <hr class="my-8 border-1 opacity-70 border-[#0F4A8A]"/>
+        <%= turbo_frame_tag "quest_list" do %>
+          <div class="">
+            <%= render @quests.order(:is_done, :created_at) %>
+          </div>
+        <% end %>
+      </div>
+    </section>
 </div>
