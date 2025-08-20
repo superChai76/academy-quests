@@ -29,6 +29,38 @@
         ],
         "branches": {}
       },
+      "/Users/administrator/ODD-E/exam-project/academy_quests/app/controllers/brags_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/administrator/ODD-E/exam-project/academy_quests/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/administrator/ODD-E/exam-project/academy_quests/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/administrator/ODD-E/exam-project/academy_quests/app/helpers/quests_helper.rb": {
+        "lines": [
+          1,
+          null
+        ],
+        "branches": {}
+      },
       "/Users/administrator/ODD-E/exam-project/academy_quests/app/mailers/application_mailer.rb": {
         "lines": [
           1,
@@ -95,40 +127,8 @@
             "[:else, 2, 16, 4, 19, 7]": 1
           }
         }
-      },
-      "/Users/administrator/ODD-E/exam-project/academy_quests/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/administrator/ODD-E/exam-project/academy_quests/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/administrator/ODD-E/exam-project/academy_quests/app/helpers/quests_helper.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/administrator/ODD-E/exam-project/academy_quests/app/controllers/brags_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ],
-        "branches": {}
       }
     },
-    "timestamp": 1755681487
+    "timestamp": 1755681674
   }
 }
