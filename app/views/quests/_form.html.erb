@@ -1,27 +1,18 @@
-<%= form_with(model: quest, class: "contents") do |form| %>
-  <% if quest.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
+<%= form_with model: Quest.new, url: quests_path,
+      class: "flex w-full gap-2 my-6 items-center" do |f| %>
 
-      <ul class="list-disc ml-6">
-        <% quest.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <!-- ช่องกรอก: ยืดเต็ม -->
+  <%= f.text_field :description,
+        placeholder: "Add a new quest…",
+        class: "input input-bordered flex-1 bg-white/90 rounded-xl text-xl py-8 border-2 border-[#0F4A84]" %>
 
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.textarea :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": quest.errors[:description].none?, "border-red-400 focus:outline-red-600": quest.errors[:description].any?}] %>
-  </div>
-
-  <div class="my-5 flex items-center gap-2">
-    <%= form.label :is_done %>
-    <%= form.checkbox :is_done, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": quest.errors[:is_done].none?, "border-red-400 focus:outline-red-600": quest.errors[:is_done].any?}] %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+  <!-- ปุ่ม: ไม่ยืด -->
+  <button type="submit"
+          class="btn btn-circle shrink-0 p-2 w-12 h-12 bg-[#FFA826] border-2 border-[#FFD7B2] 
+                 shadow-amber-300 shadow-md text-white hover:scale-90"
+          aria-label="Create quest">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-8">
+      <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+    </svg>
+  </button>
 <% end %>

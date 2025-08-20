@@ -1,5 +1,5 @@
 <turbo-frame id="quest_list">
-      <div id="quests" class="">
+      <div id="quests" class="overflow-y-auto">
         <% @quests.each do |quest| %>
           <%= render "quest", quest: quest %>
         <% end %>

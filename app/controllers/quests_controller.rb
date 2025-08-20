@@ -14,14 +14,15 @@ class QuestsController < ApplicationController
   # POST /quests or /quests.json
   def create
     @quest = Quest.new(quest_params)
-
-    respond_to do |format|
-      if @quest.save
-        format.html { redirect_to @quest, notice: "Quest was successfully created." }
-        format.json { render :show, status: :created, location: @quest }
-      else
+    if @quest.save
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to quests_path, notice: "Quest created." }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @quest.errors, status: :unprocessable_entity }
       end
     end
   end
