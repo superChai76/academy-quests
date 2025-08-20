@@ -1,9 +1,7 @@
-<!-- ใส่รายการใหม่ขึ้นบนสุดของ list -->
 <%= turbo_stream.prepend "quest_list" do %>
   <%= render @quest %>
 <% end %>
 
-<!-- รีเซ็ตฟอร์มให้ว่างใหม่ -->
 <%= turbo_stream.replace "new_quest_form" do %>
   <%= render "quests/form" %>
 <% end %>

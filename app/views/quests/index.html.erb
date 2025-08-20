@@ -61,7 +61,7 @@
     <% end %>
 
     <%= turbo_frame_tag "quest_list", data: { test_id: "quest-list" } do %>
-      <%= render @quests.order(:is_done, :created_at) %>
+      <%= render @quests %>
     <% end %>
   </section>
 </div>
